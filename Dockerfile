@@ -11,6 +11,6 @@ COPY . .
 RUN ./gradlew clean build -x test
 
 FROM openjdk:11-jdk-slim-sid
-COPY build/libs/*.jar springsan.jar
+COPY build/libs/*.jar spring-main.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","springsan.jar"]
+ENTRYPOINT ["java","-jar","spring-main.jar"]
