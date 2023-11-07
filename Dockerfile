@@ -11,9 +11,9 @@ COPY . .
 #RUN ./gradlew clean build -x test
 RUN ./gradlew bootJar --no-daemon
 
-FROM openjdk:11-jdk-slim-sid
-COPY build/libs/*.jar spring-main.jar
+FROM openjdk:11-jdk-slim
 EXPOSE 8080
+COPY build/libs/*.jar spring-main.jar
 ENTRYPOINT ["java","-jar","spring-main.jar"]
 
 #FROM gradle:7.1.0-jdk11 AS build
